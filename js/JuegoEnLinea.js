@@ -22,6 +22,7 @@ if(getCookie("config").includes('1')){
     cookie_data = {
         numero_creditos: getCookie("creditosValor"),
         numero_jugadores: getCookie("numJugadores"),
+        nombre_sala: getCookie("nombre"),
         tj2: getCookie("tj2"),
         tj3: getCookie("tj3"),
         tj4: getCookie("tj4"),
@@ -41,7 +42,14 @@ if(getCookie("config").includes('1')){
         console.log("JOIN ERROR", e);
     });
 }else if(getCookie("config").includes('2')){
-    //Codigo de unirse a una partida
+  try {
+    const room = await client.joinById(getCookie("roomID"), {/* options */});
+    console.log("joined successfully", room); 
+    const displayLog = document.getElementsByTagName('h3');
+    displayLog[0].innerHTML = `Conectado a:${room.sessionId}. Esperando jugadores ...`
+  } catch (e) {
+    console.error("join error", e);
+  }
 }else{
   //Mostrar mensaje de error inesperado
   console.error("Unable to resolve game-command! Please allow cookies in your browser!")
