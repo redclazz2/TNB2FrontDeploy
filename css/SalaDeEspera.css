@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap');
+  .body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-image: url(../img/fondoCastillo.png); /* Reemplaza 'ruta-de-la-imagen.jpg' con la ruta de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat;
+  }
+
+  /*-------------------------------------------------------------------------------------------- 
+     estilo del titulo principal y los dos secundarios
+  ----------------------------------------------------------------------------------------------*/
+
+  /*#title-box {
+    background-color: #3498db;  Color para el cuadro de título 
+    color: #fff;  Color del texto del título 
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+  }*/
+  #title-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ancho del contenedor: ocupa todo el ancho de la pantalla */
+    height: 105px; /* Alto del contenedor */
+    background-size: 100%; /* La imagen se estirará horizontalmente */
+    background-image: url(../img/barraMadera.png); /* Ruta de tu imagen de fondo */
+    color: #fff; /* Color del texto del título */
+    text-align: center;
+    
+    font-size: 60px;
+    font-family: 'Alegreya', sans-serif;
+    justify-content: space-between;
+  }   
+  .botonMenu1 {
+    margin: 15px;
+    display: inline-block;  /* Cambiamos de inline a inline-block */
+    text-align: center;
+    width: 250px;
+    height: 60px;
+    font-family: 'IrishGrover';
+    background-color: rgba(49, 7, 7, 0.84);
+    color: white;
+    font-size: 35px;
+    border-radius: 10px;
+    line-height: 1.6;
+    text-decoration: none;
+      /* Añadimos un margen derecho para separar los botones */
+    /*margin-left: 35px;
+    margin-top: 520px;*/
+  }
+  .botonMenu2 {
+       margin: 15px;
+      display: inline-block;  /* Cambiamos de inline a inline-block */
+      text-align: center;
+      width: 250px;
+      height: 60px;
+      font-family: 'IrishGrover';
+      background-color: rgba(49, 7, 7, 0.84);
+      color: white;
+      font-size: 35px;
+      border-radius: 10px;
+      line-height: 1.6;
+      text-decoration: none;
+        /* Añadimos un margen derecho para separar los botones */
+      /*margin-left: 35px;
+      margin-top: 520px;*/
+  }
+      
+
+  #contenedorPrincipal { /*contiene todos los demas containers*/
+    height: calc(100vh - 105px);;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-image: url(../img/fondoCastillo.png); /* Ruta de tu imagen de fondo */
+    background-size: cover; /* Puedes cambiar a 'contain' u otros valores según tu preferencia */
+    background-repeat: no-repeat;
+  }
+  .jugadores {
+    width: 60%;
+  }
+
+  #estadoSala {
+    border-radius: 7px;
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center; /* Alinea todos los elementos en el centro vertical */
+    background-color: #8B4513;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-size: 100% 100%; /* Deformar la imagen para llenar el contenedor */
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    width: 40%; /* Ancho de cada cuadro */
+    height: 130px;
+    
+    /*background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+  }
+
+  #jugador {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center; /* Alinea todos los elementos en el centro vertical */
+    /*background-color: transparent; /* Fondo completamente transparente */
+    background-color: rgba(217, 217, 217, 0.0);
+    background-image: url(../img/pergamino.png); /* Ruta de tu imagen de fondo */
+    background-size: 100% 100%; /* Deformar la imagen para llenar el contenedor */
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    width: calc(98%); /* Ancho de cada cuadro */
+    height: 20%;
+    
+    /*background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+  }
+
+  .labelJugador {
+    /*flex-grow: 1;*/
+    justify-content: center;
+    font-size: 60px;
+    font-family: 'Alegreya', sans-serif;
+  }
+
+  #textoEsperar {
+    /*flex-grow: 1;*/
+    justify-content: center;
+    font-size: 50px;
+    font-family: 'Alegreya', sans-serif;
+    color: #fff;
+  }
+  #popup {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #8B4513; /* Color marrón oscuro para el fondo */
+    padding: 20px;
+    border: 2px solid #D2B48C; /* Borde dorado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-family: 'Alegreya', sans-serif; /* Fuente medieval */
+    font-size: 30px;
+    color: #D2B48C; /* Color dorado para el texto */
+  }
+  #popupCreditos {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #8B4513; /* Color marrón oscuro para el fondo */
+    padding: 20px;
+    border: 2px solid #D2B48C; /* Borde dorado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-family: 'Alegreya', sans-serif; /* Fuente medieval */
+    font-size: 30px;
+    color: #D2B48C; /* Color dorado para el texto */
+  }
+
+  /* Estilo para el fondo oscurecido detrás del cuadro emergente */
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    align-items: center;
+  }
+
+  /* Estilo para el botón "Cerrar" */
+  #cerrarPopup {
+    display: inline-block; 
+      text-align: center;
+      width: 250px;
+      height: 60px;
+      font-family: 'IrishGrover';
+      background-color: rgba(49, 7, 7, 0.84);
+      color: white;
+      font-size: 35px;
+      border-radius: 10px;
+      line-height: 1.6;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      margin-left: 28%;
+  }
+  #cerrarPopupCreditos {
+    display: inline-block; 
+      text-align: center;
+      width: 250px;
+      height: 60px;
+      font-family: 'IrishGrover';
+      background-color: rgba(49, 7, 7, 0.84);
+      color: white;
+      font-size: 35px;
+      border-radius: 10px;
+      line-height: 1.6;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      margin-left: 28%;
+  }
+
+
+  
+  .loading-dots::after {
+    content: "...";
+    animation: loading 3s infinite;
+    display: inline-block;
+    width: 0;
+  }
+  /* Animación*/ 
+  @keyframes loading {
+      0% {
+        content: "";
+      }
+      33% {
+        content: ".";
+      }
+      66% {
+        content: "..";
+      }
+      100% {
+        content: "...";
+      }
+    }
+  
+
+.none{
+  display: none;
+}
+
+
+/*Vista PARTIDA*/
+.container{
+  /*background-image: url(../img/transformed.jpeg);*/
+  background-color: #D2B48C;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*Carta*/
+
+
+.v49_153 {
+  width: 215px;
+  height: 350px;
+  background: url("../img/v49_27.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v49_3 {
+  width: 215px;
+  height: 338px;
+  background: rgba(17,18,18,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+.v49_4 {
+  width: 205px;
+  height: 329px;
+  background: rgba(17,18,18,1);
+  opacity: 1;
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+.v49_5 {
+  width: 181px;
+  height: 20px;
+  background: rgba(57,57,15,1);
+  opacity: 1;
+  position: absolute;
+  top: 15px;
+  left: 17px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_6 {
+  width: 181px;
+  height: 107px;
+  background: rgba(57,57,15,1);
+  opacity: 1;
+  position: absolute;
+  top: 216px;
+  left: 17px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_8 {
+  width: 181px;
+  height: 166px;
+  background: rgb(97, 97, 97);
+  opacity: 1;
+  position: absolute;
+  top: 45px;
+  left: 17px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+
+.v49_8 img{
+  width: 100%;
+
+  object-fit: cover;
+}
+
+.v49_9 {
+  width: 198px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 19px;
+  
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;
+}
+.v49_10 {
+  width: 100px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 244px;
+  left: 28px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_11 {
+  width: 100px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 275px;
+  left: 28px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_12 {
+  width: 100px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 259px;
+  left: 28px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_13 {
+  width: 100px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 244px;
+  left: 97px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_14 {
+  width: 100px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 259px;
+  left: 97px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_15 {
+  width: 171px;
+  height: 23px;
+  background: rgba(57,57,15,1);
+  opacity: 1;
+  position: absolute;
+  top: 293px;
+  left: 22px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_16 {
+  width: 62px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 274px;
+  left: 28px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 8px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_17 {
+  cursor: pointer;
+  width: 49px;
+  height: 19px;
+  background: rgba(172,55,5,1);
+  opacity: 1;
+  position: absolute;
+  top: 295px;
+  left: 141px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_18 {
+  cursor: pointer;
+  width: 52px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 299px;
+  left: 140px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 12px;
+  opacity: 1;
+  text-align: center;
+}
+.v49_19 {
+  width: 21px;
+  height: 19px;
+  background: rgba(17,18,18,1);
+  opacity: 1;
+  position: absolute;
+  top: 295px;
+  left: 117px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.v49_20 {
+  width: 21px;
+  height: 19px;
+  background: rgba(25,66,10,1);
+  opacity: 1;
+  position: absolute;
+  top: 295px;
+  left: 93px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_21 {
+  cursor: pointer;
+  width: 6px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 299px;
+  left: 125px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 12px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_22 {
+  width: 6px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 300px;
+  left: 102px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 8px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_23 {
+  width: 35px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 217px;
+  left: 80px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 11px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_24 {
+  width: 155px;
+  height: 11px;
+  background: rgba(57,57,15,1);
+  opacity: 1;
+  position: absolute;
+  top: 231px;
+  left: 28px;
+  border: 1px solid rgba(255,244,0,1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_25 {
+  width: 105px;
+  height: 10px;
+  background: rgba(25,66,10,1);
+  opacity: 1;
+  position: absolute;
+  top: 232px;
+  left: 29px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+}
+.v49_26 {
+  width: 9px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 231px;
+  left: 97px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 10px;
+  opacity: 1;
+  text-align: left;
+}
+.v49_27 {
+  width: 13px;
+  height: 14px;
+  background: url("../images/v49_27.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 18px;
+  left: 160px;
+  overflow: hidden;
+}
+
+
+
+/*Estructura partida */
+
+.container{
+  display: flex;
+}
+.columna{
+  flex: 1;
+}
+.c1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  
+}
+.c2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 90%;
+  
+}
+.c3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  
+}
+.green{
+  background-color: rgb(41, 223, 41);
+}

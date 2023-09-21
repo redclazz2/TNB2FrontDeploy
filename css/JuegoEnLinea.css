@@ -1,0 +1,39 @@
+body{
+    background-color: #CCBEA3;
+    font-family: 'Irish Grover';
+}
+
+header{
+    background-image: url('../img/header.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 88px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+}
+
+h1{
+    display:inline;
+    text-align: center;
+    align-content: center;
+    color: white;
+}
+
+button {
+    border-radius: 20px;
+    background-image: url(../img/Rectangle.png);
+    background-size: cover;
+    cursor: pointer;
+    border: none;
+    padding: 5px 20px;
+    font-size: 22px;
+    color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    font-family: 'Irish Grover';
+    transition: .8s ease;
+  }
+  button:hover{
+    transform: scale(1.05);
+  }
