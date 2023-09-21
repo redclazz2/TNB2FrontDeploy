@@ -22,7 +22,7 @@ export default class controllerJuego {
                     break;
                 }
             }
-            InterpreteHandler.atackObjective(ClientMap.get(this.local_session_id)[1], ClientMap.get(ObjectiveSessionID)[1], ObjectiveSessionID, this);
+            InterpreteHandler.atackObjective(ClientMap.get(this.local_session_id)[1], ClientMap.get(ObjectiveSessionID)[1], ObjectiveSessionID, this, this.local_session_id);
         };
         this.registerLocalSessionID = (session) => {
             this.local_session_id = session;
@@ -63,6 +63,7 @@ export default class controllerJuego {
                 this.playerHasPermission = false;
             }
         };
+        //Cambia el turno local y reiniciar el timer
         this.registerCurrentTurnChange = (newTurnData) => {
             this.local_current_turn = newTurnData;
             this.handleTurnChange();
